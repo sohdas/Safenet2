@@ -7,7 +7,7 @@ public class ATM {
 
 		String ans = "";
 
-		Denomination[] stock = new Denomination[6];
+		Denomination[] stock = new Denomination[7];
 
 		stock[0] = new Denomination(1);
 		stock[1] = new Denomination(5);
@@ -15,6 +15,7 @@ public class ATM {
 		stock[3] = new Denomination(20);
 		stock[4] = new Denomination(50);
 		stock[5] = new Denomination(100);
+		stock[5] = new Denomination(1000);
 
 		String[] demSplit;
 
@@ -47,7 +48,7 @@ public class ATM {
 		for (String s : demSplit) {
 			int x = Integer.parseInt(s);
 
-			for (int y = 0; y < 6; y++) {
+			for (int y = 0; y < 7; y++) {
 				if (x == stock[y].getValue()) {
 					flag = true;
 
@@ -64,7 +65,7 @@ public class ATM {
 
 			Denomination[] stock = orig.clone();
 
-			int x = 5;
+			int x = 6;
 			int finAmt = wAmt;
 
 			while (wAmt != 0) {
@@ -83,7 +84,7 @@ public class ATM {
 			System.out.println("Success: Dispensed $" + finAmt);
 			System.out.println("Machine balance: ");
 
-			String[] all = { "100", "50", "20", "10", "5", "1" };
+			String[] all = { "1000", "100", "50", "20", "10", "5", "1" };
 			displayAmts(all, stock);
 
 			orig = stock.clone();
@@ -94,7 +95,7 @@ public class ATM {
 	}
 
 	private static void restock(Denomination[] stock) {
-		for (int x = 0; x < 6; x++) {
+		for (int x = 0; x < 7; x++) {
 			if (stock[x].getAmount() != preStock)
 				stock[x].setAmount(preStock);
 		}
