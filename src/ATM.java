@@ -18,13 +18,16 @@ public class ATM {
 
 		String[] demSplit;
 
+		System.out.println(
+				">Enter R to restock\n>Enter W to withdraw\n>Enter I and type in a denomination to view amounts"
+						+ "\n>Enter Q to quit");
 		Scanner input = new Scanner(System.in);
-
 		while (!ans.contains("Q")) {
-			ans = input.nextLine();
+			ans = input.nextLine().toUpperCase();
 
 			if (ans.contains("R")) {
 				restock(stock);
+				System.out.println("Restocked.");
 			} else if (ans.contains("W")) {
 				if (ans.contains("$"))
 					withdraw(stock, Integer.parseInt(ans.substring(ans.indexOf("$") + 1).trim()));
